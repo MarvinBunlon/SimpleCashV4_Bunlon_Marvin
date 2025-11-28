@@ -87,4 +87,35 @@ public class CompteService {
         compte.setSolde(nouveauSolde);
         return compteRepository.save(compte);
     }
+    @Transactional
+    public void virement(Long compteSourceId, Long compteDestinationId, BigDecimal montant) {
+
+        if (montant.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new RuntimeException("Le montant doit être positif");
+        }
+
+        Compte source = compteRepository.findById(compteSourceId)
+                .orElseThrow(() -> new RuntimeException("Compte source introuvable"));
+
+        Compte destination = compteRepository.findById(compteDestinationId)
+                .orElseThrow(() -> new RuntimeException("Compte destination introuvable"));
+
+        BigDecimal nouveauSolde = source.getSolde().subtract(montant);
+
+        if (source instanceof CompteCourant courant) {
+            if (nouveauSolde.doubleValue() < -courant.getDecouvert()) {
+                throw new RuntimeException("Découvert autorisé dépassé sur le compte source");
+            }
+        }
+
+        if (source instanceof CompteEpargne && nouveauSolde.doubleValue() < 0) {
+            throw new RuntimeException("Un compte épargne ne peut pas être négatif");
+        }
+
+        source.setSolde(nouveauSolde);
+        destination.setSolde(destination.getSolde().add(montant));
+
+        compteRepository.save(source);
+        compteRepository.save(destination);
+    }
 }

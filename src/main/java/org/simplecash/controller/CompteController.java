@@ -27,4 +27,14 @@ public class CompteController {
     public Compte debit(@PathVariable Long id, @RequestParam BigDecimal montant) {
         return compteService.debit(id, montant);
     }
+    @PostMapping("/virement")
+    public String virement(
+            @RequestParam Long sourceId,
+            @RequestParam Long destinationId,
+            @RequestParam BigDecimal montant
+    ) {
+        compteService.virement(sourceId, destinationId, montant);
+        return "Virement de " + montant + "€ effectué avec succès.";
+    }
+
 }
