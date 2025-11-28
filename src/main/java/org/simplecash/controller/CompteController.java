@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 public class CompteController {
 
-    private final CompteService compteService;
+    private CompteService compteService;
 
     @PostMapping("/{id}/credit")
     public Compte credit(@PathVariable Long id, @RequestParam BigDecimal montant) {

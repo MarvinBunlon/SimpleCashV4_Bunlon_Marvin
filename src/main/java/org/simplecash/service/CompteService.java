@@ -1,6 +1,5 @@
 package org.simplecash.service;
 
-import lombok.RequiredArgsConstructor;
 import org.simplecash.entity.Compte;
 import org.simplecash.entity.CompteCourant;
 import org.simplecash.entity.CompteEpargne;
@@ -11,10 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 
 @Service
-@RequiredArgsConstructor
 public class CompteService {
 
     private final CompteRepository compteRepository;
+
+    public CompteService(CompteRepository compteRepository) {
+        this.compteRepository = compteRepository;
+    }
 
     @Transactional
     public Compte credit(Long compteId, BigDecimal montant) {
@@ -32,14 +34,12 @@ public class CompteService {
 
         BigDecimal nouveauSolde = compte.getSolde().subtract(montant);
 
-        // Compte courant → autorisation -1000€
         if (compte instanceof CompteCourant courant) {
             if (nouveauSolde.doubleValue() < -courant.getDecouvert()) {
                 throw new RuntimeException("Découvert autorisé dépassé");
             }
         }
 
-        // Compte épargne → jamais négatif
         if (compte instanceof CompteEpargne && nouveauSolde.doubleValue() < 0) {
             throw new RuntimeException("Un compte épargne ne peut pas être négatif");
         }

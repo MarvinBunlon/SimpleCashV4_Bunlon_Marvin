@@ -1,6 +1,5 @@
 package org.simplecash.service;
 
-import lombok.RequiredArgsConstructor;
 import org.simplecash.entity.Client;
 import org.simplecash.repository.ClientRepository;
 import org.springframework.stereotype.Service;
@@ -8,10 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ClientService {
 
     private final ClientRepository clientRepository;
+
+    // Constructor injection (remplace @RequiredArgsConstructor)
+    public ClientService(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
 
     public Client create(Client client) {
         return clientRepository.save(client);
