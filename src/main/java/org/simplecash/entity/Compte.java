@@ -16,10 +16,6 @@ public abstract class Compte {
     private BigDecimal solde;
     private LocalDate dateOuverture;
 
-    @OneToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
-
     public Compte() {}
 
     public Long getId() {
@@ -29,7 +25,6 @@ public abstract class Compte {
     public String getNumeroCompte() {
         return numeroCompte;
     }
-
     public void setNumeroCompte(String numeroCompte) {
         this.numeroCompte = numeroCompte;
     }
@@ -37,7 +32,6 @@ public abstract class Compte {
     public BigDecimal getSolde() {
         return solde;
     }
-
     public void setSolde(BigDecimal solde) {
         this.solde = solde;
     }
@@ -45,16 +39,7 @@ public abstract class Compte {
     public LocalDate getDateOuverture() {
         return dateOuverture;
     }
-
     public void setDateOuverture(LocalDate dateOuverture) {
         this.dateOuverture = dateOuverture;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 }

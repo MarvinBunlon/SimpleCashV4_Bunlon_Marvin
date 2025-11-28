@@ -11,7 +11,6 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
 
-    // Constructor injection (remplace @RequiredArgsConstructor)
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
