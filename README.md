@@ -38,6 +38,7 @@ mvn spring-boot:run
 BIEN, maintenant l'application tourne ! Félicitations.
 Pour les deux étapes suivantes qui contiennent des liens, je vous conseille de les ouvrir l'un à coté de l'autre.
 
+---
 #### **✅ 2.Documentation API (Swagger)**
 
 La documentation Swagger est automatiquement générée et accessible à :
@@ -50,6 +51,7 @@ toutes les routes de l’API
 les modèles JSON
 la possibilité de tester les requêtes directement dans le navigateur
 
+---
 #### **✅ 3. Base de données H2 (type adminer)**
 
 Une base H2 embarquée est utilisée.
