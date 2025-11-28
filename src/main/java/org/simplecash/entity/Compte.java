@@ -14,6 +14,7 @@ public abstract class Compte {
 
     private String numeroCompte;
     private BigDecimal solde;
+    private String type;
     private LocalDate dateOuverture;
 
     public Compte() {}
@@ -21,7 +22,9 @@ public abstract class Compte {
     public Long getId() {
         return id;
     }
-
+    public void setType(String type) {
+        this.type = type;
+    }
     public String getNumeroCompte() {
         return numeroCompte;
     }

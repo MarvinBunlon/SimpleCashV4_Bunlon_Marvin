@@ -51,15 +51,27 @@ public class ClientController {
         clientService.delete(id);
     }
 
-    // 🔵 Créer un compte courant pour un client
-    @PostMapping("/{id}/comptes/courant")
-    public CompteCourant createCompteCourant(@PathVariable Long id) {
-        return compteService.createCompteCourant(id);
+    @PostMapping("/{id}/comptes")
+    public Object createCompte(
+            @PathVariable Long id,
+            @RequestParam int type
+    ) {
+        switch (type) {
+            case 1:
+                return compteService.createCompteCourant(id);
+            case 2:
+                return compteService.createCompteEpargne(id);
+            default:
+                throw new RuntimeException("Type de compte invalide. Utilisez 1 (Courant) ou 2 (Épargne).");
+        }
     }
+    @GetMapping("/{id}/comptes")
+    public Object getClientAccounts(@PathVariable Long id) {
+        Client client = clientService.get(id);
 
-    // 🔵 Créer un compte épargne pour un client
-    @PostMapping("/{id}/comptes/epargne")
-    public CompteEpargne createCompteEpargne(@PathVariable Long id) {
-        return compteService.createCompteEpargne(id);
+        return new Object() {
+            public final Object compteCourant = client.getCompteCourant();
+            public final Object compteEpargne = client.getCompteEpargne();
+        };
     }
 }

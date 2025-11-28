@@ -1,5 +1,6 @@
 package org.simplecash.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,6 +10,7 @@ public class CompteCourant extends Compte {
 
     @OneToOne
     @JoinColumn(name = "client_id")
+    @JsonIgnore
     private Client client;
 
     public CompteCourant() {}

@@ -34,11 +34,11 @@ public class CompteService {
         compte.setDateOuverture(LocalDate.now());
         compte.setSolde(BigDecimal.ZERO);
         compte.setClient(client);
+        compte.setType("COURANT");
 
         return compteRepository.save(compte);
     }
 
-    // 🔵 Créer un compte épargne
     @Transactional
     public CompteEpargne createCompteEpargne(Long clientId) {
         Client client = clientRepository.findById(clientId)
@@ -49,6 +49,7 @@ public class CompteService {
         compte.setDateOuverture(LocalDate.now());
         compte.setSolde(BigDecimal.ZERO);
         compte.setClient(client);
+        compte.setType("EPARGNE");
 
         return compteRepository.save(compte);
     }
