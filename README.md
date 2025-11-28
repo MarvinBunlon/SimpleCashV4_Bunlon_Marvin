@@ -96,6 +96,7 @@ Un seul Conseiller
 
 Les comptes sont liés au client automatiquement lors de leur création.
 
+---
 ✅ 2. Gestion des Comptes Bancaires
 
 Deux types de comptes sont disponibles :
@@ -132,6 +133,7 @@ le crédit du compte cible
 le tout dans une transaction unique (@Transactional)
 Si une opération échoue, le virement entier est annulé (atomicité bancaire).
 
+---
 ✅ 3. Gestion des Conseillers
 
 Un conseiller bancaire est responsable d’un portefeuille de clients et dépend d’une agence.
@@ -153,6 +155,7 @@ Un conseiller appartient à une agence
 Un conseiller dépend d’un gérant
 Un conseiller a plusieurs clients
 
+---
 ✅ 4. Gestion des Gérants
 
 Le gérant supervise un ensemble de conseillers au sein d’une agence.
@@ -170,7 +173,7 @@ Un gérant gère plusieurs conseillers
 Une agence possède un seul gérant
 Les conseillers peuvent être réassignés à un autre gérant
 
-
+---
 ✅ 5. Gestion des Agences
 
 L’agence est l’entité centrale regroupant gérant, conseillers et clients indirectement.
@@ -189,6 +192,7 @@ Une agence possède un gérant
 Une agence possède plusieurs conseillers
 Les clients sont liés aux conseillers → donc indirectement à l’agence
 
+---
 ✅ 6. Relation globale du système (résumé)
 
 Gérant
@@ -208,7 +212,7 @@ Client
 Compte
 appartient à 1 seul Client (logique me direz vous, mais important de le souligner)
 
-
+---
 **Voici le Diagramme UML :**
 
 https://drive.google.com/file/d/1B2U6-wk7X5ku8ac-H4_uZrjVXRinOPly/view?usp=drive_link
@@ -217,7 +221,7 @@ https://drive.google.com/file/d/1B2U6-wk7X5ku8ac-H4_uZrjVXRinOPly/view?usp=drive
 
 https://drive.google.com/file/d/1u3jANI8LGTQb5_ILbXHLenZQTnyhdy7S/view?usp=drive_link
 
-
+---
 Si vous voulez tester les routes voici quelques exemples que vous pouvez rentrer :
 Dans swagger, choissisez votre route, cliquez dessus pour l'ouvrir, bouton "try it out", et en fonction mettez les données demandés.
 
@@ -259,7 +263,7 @@ Rien, rentrez juste l'id de votre client !
 Vous avez normalement tous les types de texte à mettre dans les routes pour les tester.
 Bon tests !
 
-
+---
 **Bilan du projet**
 
 ✅ Fonctionnalités réalisées
@@ -290,5 +294,5 @@ Ajouter Spring Security (rôles : admin, gérant, conseiller, client).
 Historique des opérations bancaires.
 Tests unitaires (JUnit + MockMvc).
 Eventuelle interface front (Angular/React).
-
+---
 Merci d'avoir lu et testé !
