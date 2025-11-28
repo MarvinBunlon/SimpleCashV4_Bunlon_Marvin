@@ -1,5 +1,6 @@
 package org.simplecash.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +22,11 @@ public class Client {
 
     @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
     private CompteEpargne compteEpargne;
+
+    @ManyToOne
+    @JoinColumn(name = "conseiller_id")
+    @JsonBackReference
+    private Conseiller conseiller;
 
     public Client() {}
 
@@ -51,4 +57,13 @@ public class Client {
 
     public CompteEpargne getCompteEpargne() { return compteEpargne; }
     public void setCompteEpargne(CompteEpargne compteEpargne) { this.compteEpargne = compteEpargne; }
+
+    public Conseiller getConseiller() {
+        return conseiller;
+    }
+
+    public void setConseiller(Conseiller conseiller) {
+        this.conseiller = conseiller;
+    }
+
 }
