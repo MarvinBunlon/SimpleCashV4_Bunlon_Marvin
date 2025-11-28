@@ -13,7 +13,7 @@ Elle expose une API REST documentée via Swagger et utilise une Base de données
 
 Dans ce README, vous allez être accompagné pour voir la documentation, tester l'application, ainsi que d'autres lien seront disponible pour favoriser la compréhension du projet. Bonne lecture ! :)
 
-✅ **1. Installation & Lancement**
+#### ✅ **1. Installation & Lancement**
 
 Prérequis :
 
@@ -38,7 +38,7 @@ mvn spring-boot:run
 BIEN, maintenant l'application tourne ! Félicitations.
 Pour les deux étapes suivantes qui contiennent des liens, je vous conseille de les ouvrir l'un à coté de l'autre.
 
-**✅ 2.Documentation API (Swagger)**
+#### **✅ 2.Documentation API (Swagger)**
 
 La documentation Swagger est automatiquement générée et accessible à :
 
@@ -50,7 +50,7 @@ toutes les routes de l’API
 les modèles JSON
 la possibilité de tester les requêtes directement dans le navigateur
 
-**✅ 3. Base de données H2 (type adminer)**
+#### **✅ 3. Base de données H2 (type adminer)**
 
 Une base H2 embarquée est utilisée.
 Console accessible ici :
@@ -75,7 +75,7 @@ Et si avant de tester nos fonctionnalités, nous résumions ce que le projet peu
 SimpleCash est un système bancaire simplifié permettant de gérer les interactions entre les clients, leurs comptes bancaires et les acteurs de gestion interne (conseillers, gérants, agences).
 Il met à disposition une API REST complète permettant d’effectuer toutes les opérations bancaires classiques, ainsi que la gestion organisationnelle d’une agence bancaire.
 
-✅ 1. Gestion des Clients
+#### ✅ 1. Gestion des Clients
 
 L’application permet de gérer le cycle de vie complet d’un client :
 
@@ -97,7 +97,7 @@ Un seul Conseiller
 Les comptes sont liés au client automatiquement lors de leur création.
 
 ---
-✅ 2. Gestion des Comptes Bancaires
+#### ✅ 2. Gestion des Comptes Bancaires
 
 Deux types de comptes sont disponibles :
 
@@ -134,7 +134,7 @@ le tout dans une transaction unique (@Transactional)
 Si une opération échoue, le virement entier est annulé (atomicité bancaire).
 
 ---
-✅ 3. Gestion des Conseillers
+#### ✅ 3. Gestion des Conseillers
 
 Un conseiller bancaire est responsable d’un portefeuille de clients et dépend d’une agence.
 
@@ -156,7 +156,7 @@ Un conseiller dépend d’un gérant
 Un conseiller a plusieurs clients
 
 ---
-✅ 4. Gestion des Gérants
+#### ✅ 4. Gestion des Gérants
 
 Le gérant supervise un ensemble de conseillers au sein d’une agence.
 
@@ -174,7 +174,7 @@ Une agence possède un seul gérant
 Les conseillers peuvent être réassignés à un autre gérant
 
 ---
-✅ 5. Gestion des Agences
+#### ✅ 5. Gestion des Agences
 
 L’agence est l’entité centrale regroupant gérant, conseillers et clients indirectement.
 
@@ -193,7 +193,7 @@ Une agence possède plusieurs conseillers
 Les clients sont liés aux conseillers → donc indirectement à l’agence
 
 ---
-✅ 6. Relation globale du système (résumé)
+#### ✅ 6. Relation globale du système (résumé)
 
 Gérant
 Plusieurs Conseillers
@@ -264,7 +264,7 @@ Vous avez normalement tous les types de texte à mettre dans les routes pour les
 Bon tests !
 
 ---
-**Bilan du projet**
+### **Bilan du projet**
 
 ✅ Fonctionnalités réalisées
 
